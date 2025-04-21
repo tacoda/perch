@@ -1,0 +1,50 @@
+<header>
+  <nav class="primary">
+    <ul>
+      <% if signed_in? %>
+        <li>
+          <%= nav_link_to current_user.username, current_user %>
+        </li>
+        <li>
+          <%= button_to "Sign Out", session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= nav_link_to "Sign In", signin_path %>
+        </li>
+        <li>
+          <%= nav_link_to "Sign Up", signup_path %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="logo">
+    <%= link_to lenses_path do %>
+      <%#= image_tag("logo.svg") %>
+      <h1>Perch</h1>
+    <% end %>
+  </div>
+
+  <nav class="secondary">
+    <ul>
+      <li>
+        <%= nav_link_to "Lenses", lenses_path %>
+      </li>
+      <li>
+        <%= nav_link_to "Field Kit", field_kit_items_path %>
+        <% if false %>
+          <div class="item-count" id="tackle_box_items_count" data-turbo-permanent>
+            <%= current_user.tackle_box_items.size %>
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= nav_link_to "Sightings", sightings_path %>
+      </li>
+      <li>
+        <%= nav_link_to "Activity", activity_path %>
+      </li>
+    </ul>
+  </nav>
+</header>
