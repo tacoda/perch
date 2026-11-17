@@ -1,2 +1,11 @@
+<h2>Activity</h2>
+
+<%= turbo_stream_from "activity" %>
+
 <div id="sightings">
+  <% if @sightings.any? %>
+    <%= render partial: "activity/sighting", collection: @sightings, as: :sighting %>
+  <% else %>
+    <p>No sightings yet. Be the first to log one!</p>
+  <% end %>
 </div>

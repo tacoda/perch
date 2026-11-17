@@ -1,0 +1,31 @@
+<div class="lenses">
+  <% @items.each do |item| %>
+    <%= link_to field_kit_item_path(item), id: dom_id(item), class: ("selected" if item == @item) do %>
+      <%= image_tag item.lens.image, alt: item.lens.name %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="selected-item">
+  <div class="header">
+    <div class="name-category">
+      <%= link_to @item.lens.name, @item.lens, data: { turbo_frame: "_top" } %>
+      (<%= @item.lens.category %>)
+    </div>
+    <div class="stats" id="<%= dom_id(@item, :stats) %>">
+      <%= render "field_kit_items/stats", item: @item %>
+    </div>
+  </div>
+
+  <%= render "field_kit_items/sighting_form", item: @item, sighting: @sighting %>
+
+  <div class="sightings" id="<%= dom_id(@item, :sightings) %>">
+    <% if @sightings.any? %>
+      <%= render partial: "sightings/sighting", collection: @sightings, locals: { item: @item } %>
+    <% else %>
+      <div class="empty">
+        <p>No sightings logged with this gear yet.</p>
+      </div>
+    <% end %>
+  </div>
+</div>

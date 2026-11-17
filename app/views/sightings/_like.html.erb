@@ -1,0 +1,6 @@
+<span id="<%= dom_id(sighting, :like) %>">
+  <%= button_to like_sighting_path(sighting), title: "Like this sighting",
+                form: { data: { turbo_frame: "_top" } } do %>
+    <span class="heart">♥</span> <%= sighting.likes_count %>
+  <% end %>
+</span>

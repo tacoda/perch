@@ -1,2 +1,36 @@
-<div class="sightings">
+<div class="filter">
+  <%= form_with url: sightings_path, method: :get,
+                data: { turbo_frame: "sightings", controller: "autosubmit", action: "change->autosubmit#submit" } do |f| %>
+    <%= f.select :lens_id, options_for_select([["All lenses", ""]] + @lenses.map { |lens| [lens.name, lens.id.to_s] }, params[:lens_id]) %>
+    <%= f.submit "Filter" %>
+  <% end %>
 </div>
+
+<p class="toolbar">
+  <%= link_to "Log a new sighting", new_sighting_path %>
+</p>
+
+<%= turbo_frame_tag "sightings" do %>
+  <% if @sightings.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th class="lens">Lens</th>
+          <th class="species">Species</th>
+          <th class="weight">Weight (kg)</th>
+          <th class="length">Length (m)</th>
+          <th>Likes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "sightings/row", collection: @sightings, as: :sighting %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="no-sightings">
+      <h2>No sightings yet</h2>
+      <p><%= link_to "Log your first sighting", new_sighting_path %></p>
+    </div>
+  <% end %>
+<% end %>

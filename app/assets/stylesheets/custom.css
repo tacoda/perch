@@ -363,7 +363,8 @@ turbo-frame:not(:empty) {
   
   /* Tackle Box Items Index Page */
   
-  #tackle_box_items_index {
+  #tackle_box_items_index,
+  #field_kit_items_index {
     & .empty {
       @apply mx-auto max-w-xl w-full bg-white mt-16 px-10 py-8 shadow-md rounded-lg;
   
@@ -383,7 +384,8 @@ turbo-frame:not(:empty) {
   
   /* Tackle Box Items Show Page */
   
-  #tackle_box_items_show {
+  #tackle_box_items_show,
+  #field_kit_items_show {
     @apply flex flex-col items-center space-y-10 md:items-start md:space-y-6 md:flex-row mx-auto md:max-w-7xl;
   
     & .lenses {
@@ -607,7 +609,8 @@ turbo-frame:not(:empty) {
   
   /* Fish Catches Index Page */
   
-  #fish_sightings_index {
+  #fish_sightings_index,
+  #sightings_index {
     @apply mx-auto max-w-4xl;
   
     & .filter {
@@ -777,7 +780,8 @@ turbo-frame:not(:empty) {
   
   /* Fish Catches Show Page */
   
-  #fish_sightings_show {
+  #fish_sightings_show,
+  #sightings_show {
     @apply mx-auto max-w-xl bg-white mt-12 shadow-md rounded-lg;
   
     & .sighting {
@@ -817,7 +821,11 @@ turbo-frame:not(:empty) {
   #fish_sightings_new,
   #fish_sightings_create,
   #fish_sightings_edit,
-  #fish_sightings_update {
+  #fish_sightings_update,
+  #sightings_new,
+  #sightings_create,
+  #sightings_edit,
+  #sightings_update {
     @apply mx-auto max-w-md w-full;
   
     & h2 {
@@ -928,6 +936,7 @@ turbo-frame:not(:empty) {
   
   .flash {
     @apply absolute top-0 right-0 text-center text-sm px-4 py-2 font-medium;
+    animation: fade-in-and-out 6s ease-in-out forwards;
   
     &.notice,
     &.success {
@@ -1128,3 +1137,65 @@ turbo-frame:not(:empty) {
     @apply z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium;
   }
   
+  /* Perch Additions */
+
+  .heart {
+    @apply text-red-500;
+  }
+
+  #sightings_index {
+    & .filter {
+      @apply mb-4 flex items-center justify-center space-x-2;
+
+      & select {
+        @apply mb-0 bg-gray-100 text-gray-700 text-base w-auto;
+      }
+
+      & input[type="submit"] {
+        @apply bg-gray-200 text-gray-800 border border-gray-400 w-auto;
+      }
+    }
+
+    & .toolbar {
+      @apply mb-4 text-center text-lg;
+
+      & a {
+        @apply underline;
+      }
+    }
+
+    & td.actions {
+      @apply space-x-2 whitespace-nowrap;
+
+      & form {
+        @apply inline-block;
+      }
+
+      & button[type="submit"],
+      & input[type="submit"] {
+        @apply w-auto inline-block bg-transparent text-red-600 shadow-none border-none;
+      }
+    }
+  }
+
+  #lenses_show {
+    & .header form.button_to {
+      @apply mt-4 max-w-xs mx-auto;
+    }
+  }
+
+  #activity_index {
+    & h2 {
+      @apply py-4 text-center text-2xl font-extrabold text-gray-800;
+    }
+
+    & .sighting button .heart {
+      @apply text-lg;
+    }
+  }
+
+  #field_kit_items_show {
+    & .sightings .empty {
+      @apply px-10 py-6 text-center text-lg text-gray-500;
+    }
+  }

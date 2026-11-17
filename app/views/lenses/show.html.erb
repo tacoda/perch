@@ -9,6 +9,18 @@
     <div class="description">
       <%= @lens.description %>
     </div>
+    <% if signed_in? %>
+      <%= render "lenses/field_kit_button", lens: @lens %>
+    <% end %>
   </div>
   <%= image_tag @lens.image %>
 </div>
+
+<% if @top_sightings.any? %>
+  <h3>Top Sightings</h3>
+  <table class="top-sightings">
+    <tbody>
+      <%= render partial: "lenses/top_sighting", collection: @top_sightings, as: :sighting %>
+    </tbody>
+  </table>
+<% end %>

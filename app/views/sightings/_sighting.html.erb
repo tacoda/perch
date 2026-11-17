@@ -1,0 +1,15 @@
+<%= turbo_frame_tag sighting do %>
+  <div class="sighting">
+    <div class="species"><%= sighting.species %></div>
+    <div class="weight"><%= sighting.weight %> kg</div>
+    <div class="length"><%= sighting.length %> m</div>
+    <div class="actions">
+      <%= render "sightings/like", sighting: sighting %>
+      <% if current_user?(sighting.user) %>
+        <%= link_to "Edit", edit_sighting_path(sighting) %>
+        <%= button_to "Delete", sighting_path(sighting, field_kit_item_id: local_assigns[:item]&.id), method: :delete,
+                      form: { data: { turbo_frame: "_top" } } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

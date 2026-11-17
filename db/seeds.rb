@@ -80,3 +80,30 @@ FieldKitItem.create!([
     lens: canon_eos_r10
   }
 ])
+
+Sighting.create!([
+  {
+    user: ian,
+    lens: nikon_monarch,
+    species: "American Robin",
+    weight: 0.08,
+    length: 0.25,
+    likes_count: 3
+  },
+  {
+    user: ian,
+    lens: celestron_ultima,
+    species: "Great Blue Heron",
+    weight: 2.5,
+    length: 1.2,
+    likes_count: 7
+  },
+  {
+    user: ian,
+    lens: canon_eos_r10,
+    species: "Bald Eagle",
+    weight: 4.5,
+    length: 0.9,
+    likes_count: 12
+  }
+])

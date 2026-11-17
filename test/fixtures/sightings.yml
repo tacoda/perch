@@ -1,11 +1,26 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+robin:
+  species: American Robin
+  weight: 0.08
+  length: 0.25
+  likes_count: 2
+  lens: monarch
+  user: ian
+  created_at: <%= 2.days.ago %>
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+eagle:
+  species: Bald Eagle
+  weight: 4.5
+  length: 0.9
+  likes_count: 12
+  lens: ultima
+  user: ian
+  created_at: <%= 3.days.ago %>
+
+heron:
+  species: Great Blue Heron
+  weight: 2.5
+  length: 1.2
+  likes_count: 5
+  lens: ultima
+  user: sam
+  created_at: <%= 1.day.ago %>

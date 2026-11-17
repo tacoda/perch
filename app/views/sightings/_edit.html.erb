@@ -1,0 +1,8 @@
+<%= turbo_frame_tag sighting do %>
+  <div class="edit">
+    <%= render "form", sighting: sighting, lenses: lenses %>
+    <div class="save-cancel">
+      <%= link_to "Cancel", sighting_path(sighting), data: { turbo_frame: dom_id(sighting) } %>
+    </div>
+  </div>
+<% end %>

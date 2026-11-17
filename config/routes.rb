@@ -17,7 +17,11 @@ Rails.application.routes.draw do
 
   resources :field_kit_items
 
-  resources :sightings
+  resources :sightings do
+    member do
+      post :like
+    end
+  end
 
   get "activity", to: "activity#index"
 

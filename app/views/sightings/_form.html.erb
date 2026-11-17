@@ -1,0 +1,24 @@
+<%= form_with model: sighting, data: (local_assigns[:standalone] ? { turbo: false } : {}) do |f| %>
+  <% if local_assigns[:item] %>
+    <%= f.hidden_field :lens_id %>
+    <%= hidden_field_tag :field_kit_item_id, item.id %>
+  <% else %>
+    <%= f.label :lens_id, "Lens" %>
+    <%= f.collection_select :lens_id, lenses, :id, :name, prompt: "Choose a lens" %>
+  <% end %>
+
+  <%= f.label :species %>
+  <%= f.text_field :species %>
+
+  <%= f.label :weight %>
+  <%= f.number_field :weight, step: 0.01 %>
+
+  <%= f.label :length %>
+  <%= f.number_field :length, step: 0.01 %>
+
+  <% if sighting.errors.any? %>
+    <div class="error"><%= sighting.errors.full_messages.to_sentence %></div>
+  <% end %>
+
+  <%= f.submit sighting.new_record? ? "Log Sighting" : "Save" %>
+<% end %>

@@ -1,0 +1,9 @@
+<div id="<%= dom_id(lens, :kit) %>">
+  <% if item = lens.my_field_kit_item %>
+    <%= button_to "Remove", field_kit_item_path(item), method: :delete,
+                  form: { data: { turbo_frame: "_top" } } %>
+  <% else %>
+    <%= button_to "Add", field_kit_items_path(lens_id: lens),
+                  form: { data: { turbo_frame: "_top" } } %>
+  <% end %>
+</div>
