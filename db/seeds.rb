@@ -62,8 +62,8 @@ nikon_d500 = Lens.create!(
 )
 
 ian = User.create!(
-  username: 'Ian',
-  password: 'secret'
+  username: "Ian",
+  password: "secret"
 )
 
 FieldKitItem.create!([

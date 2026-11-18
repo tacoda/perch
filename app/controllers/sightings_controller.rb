@@ -90,7 +90,7 @@ class SightingsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        streams = [turbo_stream.remove(@sighting)]
+        streams = [ turbo_stream.remove(@sighting) ]
         if @item
           streams << turbo_stream.replace(dom_id(@item, :stats), partial: "field_kit_items/stats", locals: { item: @item })
         end

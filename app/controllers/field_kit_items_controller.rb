@@ -44,7 +44,7 @@ class FieldKitItemsController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: lens_kit_streams(@lens) + [turbo_stream.remove(@item)]
+        render turbo_stream: lens_kit_streams(@lens) + [ turbo_stream.remove(@item) ]
       end
       format.html { redirect_to lenses_path, notice: "Removed from your field kit." }
     end

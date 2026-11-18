@@ -1,6 +1,6 @@
 class Sighting < ApplicationRecord
   include ActionView::RecordIdentifier
-  include Turbo::Streams::Broadcasts
+  include Turbo::Broadcastable
 
   belongs_to :lens
   belongs_to :user

@@ -3,7 +3,7 @@ module ApplicationHelper
     "#{controller_name.underscore}_#{action_name}"
   end
 
-  def nav_link_to(text, url, options={})
+  def nav_link_to(text, url, options = {})
     link_to(text, url, options.merge(class: nav_link_class(url)))
   end
 
@@ -16,8 +16,6 @@ module ApplicationHelper
       case url
       when lenses_path
         current_page?(root_path)
-    #   when tackle_box_items_path
-    #     current_page?("#{tackle_box_items_path}/#{params[:id]}")
       else
         false
       end
