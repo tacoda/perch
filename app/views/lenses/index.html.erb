@@ -13,7 +13,7 @@
 <%= turbo_frame_tag "lenses" do %>
   <div class="lenses">
     <% if @lenses.any? %>
-      <%= render @lenses %>
+      <%= render partial: "lens", collection: @lenses, as: :lens %>
     <% else %>
       <p>No lenses match your search.</p>
     <% end %>
