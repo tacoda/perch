@@ -1,0 +1,12 @@
+<tr id="<%= dom_id(sighting) %>">
+  <td class="lens"><%= link_to sighting.lens.name, sighting.lens, data: { turbo_frame: "_top" } %></td>
+  <td class="species"><%= sighting.species %></td>
+  <td class="weight"><%= sighting.weight %></td>
+  <td class="length"><%= sighting.length %></td>
+  <td><%= render "sightings/like", sighting: sighting %></td>
+  <td class="actions">
+    <%= link_to "Edit", edit_sighting_path(sighting), data: { turbo_frame: "_top" } %>
+    <%= button_to "Delete", sighting_path(sighting), method: :delete,
+                  form: { data: { turbo_frame: "_top" } } %>
+  </td>
+</tr>

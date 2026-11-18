@@ -1,22 +1,15 @@
-<div class="lens">
-    <%= link_to image_tag(lens.image), lens, data: { turbo_frame: "_top" } %>
-    <div class="name">
-      <%= link_to lens.name, lens, data: { turbo_frame: "_top" } %>
-      <%#= link_to lens.name, lens %>
-    </div>
-    <div class="category">
-      <%= lens.category %>
-    </div>
-    <div class="popularity">
-      <%= 0 %>
-      <%#= lens.field_kit_items_count %>
-    </div>
-    <% if signed_in? %>
-      <% if item = lens.my_field_kit_item %>
-        <%= button_to "Remove", field_kit_item_path(item),
-                      method: :delete %>
-      <% else %>
-        <%= button_to "Add", field_kit_items_path(lens_id: lens) %>
-      <% end %>
-    <% end %>
+<div class="lens" id="<%= dom_id(lens) %>">
+  <%= link_to image_tag(lens.image), lens, data: { turbo_frame: "_top" } %>
+  <div class="name">
+    <%= link_to lens.name, lens, data: { turbo_frame: "_top" } %>
   </div>
+  <div class="category">
+    <%= lens.category %>
+  </div>
+  <div class="popularity" id="<%= dom_id(lens, :popularity) %>">
+    <%= lens.field_kit_items_count %>
+  </div>
+  <% if signed_in? %>
+    <%= render "lenses/field_kit_button", lens: lens %>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+<div class="user" id="<%= dom_id(user) %>">
+  <div class="username"><%= link_to user.username, user %></div>
+  <div class="created">Joined <%= time_ago_in_words(user.created_at) %> ago</div>
+</div>

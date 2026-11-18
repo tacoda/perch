@@ -17,13 +17,17 @@ Rails.application.routes.draw do
 
   resources :field_kit_items
 
-  resources :sightings
+  resources :sightings do
+    member do
+      post :like
+    end
+  end
 
   get "activity", to: "activity#index"
 
   resources :users
   get "signup" => "users#new"
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [ :new, :create, :destroy ]
   get "signin" => "sessions#new"
 end

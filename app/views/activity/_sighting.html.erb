@@ -1,0 +1,15 @@
+<div class="sighting" id="<%= dom_id(sighting) %>">
+  <div class="details">
+    <%= link_to image_tag(sighting.lens.image, alt: sighting.lens.name), sighting.lens, data: { turbo_frame: "_top" } %>
+    <div>
+      <div class="user"><%= link_to sighting.user.username, sighting.user %></div>
+      <div class="species"><%= sighting.species %></div>
+      <div>
+        <span class="weight"><%= sighting.weight %> kg</span>
+        &middot;
+        <span class="length"><%= sighting.length %> m</span>
+      </div>
+    </div>
+  </div>
+  <%= render "sightings/like", sighting: sighting %>
+</div>

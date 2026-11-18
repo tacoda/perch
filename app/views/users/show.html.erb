@@ -1,0 +1,16 @@
+<h2><%= @user.username %></h2>
+<h3>Member since <%= @user.created_at.to_fs(:long) %></h3>
+
+<p>
+  <%= pluralize(@user.sightings.count, "sighting") %>
+  &middot;
+  <%= pluralize(@user.field_kit_items.count, "field kit item") %>
+</p>
+
+<% if current_user?(@user) %>
+  <div class="actions">
+    <%= link_to "Edit account", edit_user_path(@user), class: "btn" %>
+    <%= button_to "Delete account", user_path(@user), method: :delete,
+                  class: "btn btn-danger", data: { turbo_confirm: "Really delete your account?" } %>
+  </div>
+<% end %>

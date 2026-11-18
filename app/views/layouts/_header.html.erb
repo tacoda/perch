@@ -33,9 +33,9 @@
       </li>
       <li>
         <%= nav_link_to "Field Kit", field_kit_items_path %>
-        <% if false %>
-          <div class="item-count" id="tackle_box_items_count" data-turbo-permanent>
-            <%= current_user.tackle_box_items.size %>
+        <% if signed_in? %>
+          <div class="item-count" id="field_kit_items_count" data-turbo-permanent>
+            <%= current_user.field_kit_items.size %>
           </div>
         <% end %>
       </li>
